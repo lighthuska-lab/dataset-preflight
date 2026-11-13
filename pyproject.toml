@@ -1,0 +1,30 @@
+[build-system]
+requires = ["hatchling>=1.27,<2"]
+build-backend = "hatchling.build"
+
+[project]
+name = "dataset-preflight"
+version = "0.1.0"
+description = "Check local JSONL text datasets and record file provenance before training."
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+authors = [{name = "Light Huska", email = "lighthuska@gmail.com"}]
+dependencies = []
+
+[project.scripts]
+dataset-preflight = "dataset_preflight.cli:main"
+
+[project.urls]
+Repository = "https://github.com/lighthuska-lab/dataset-preflight"
+Issues = "https://github.com/lighthuska-lab/dataset-preflight/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/dataset_preflight"]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 88
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
